@@ -8,11 +8,14 @@ const useTaskInfo = (email) => {
   const { data: taskInfo = [], refetch } = useQuery({
     queryKey: ["taskInfo", user?.email],
     queryFn: () =>
-      fetch(`http://localhost:5000/allTasks?email=${user?.email}`, {
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }).then((res) => res.json()),
+      fetch(
+        `https://task-management-server-sooty.vercel.app/allTasks?email=${user?.email}`,
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      ).then((res) => res.json()),
   });
 
   return [taskInfo, refetch];
