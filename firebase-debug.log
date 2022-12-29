@@ -1,0 +1,68 @@
+[debug] [2022-12-28T23:49:17.637Z] ----------------------------------------------------------------------
+[debug] [2022-12-28T23:49:17.639Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-12-28T23:49:17.640Z] CLI Version:   11.19.0
+[debug] [2022-12-28T23:49:17.640Z] Platform:      win32
+[debug] [2022-12-28T23:49:17.640Z] Node Version:  v16.15.1
+[debug] [2022-12-28T23:49:17.641Z] Time:          Thu Dec 29 2022 05:49:17 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-12-28T23:49:17.641Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-28T23:49:17.730Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-28T23:49:17.730Z] > authorizing via signed-in user (tausifabid1294@gmail.com)
+[debug] [2022-12-28T23:49:17.730Z] [iam] checking project task-management-system-71eb5 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-28T23:49:17.733Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/task-management-system-71eb5:testIamPermissions [none]
+[debug] [2022-12-28T23:49:17.733Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/task-management-system-71eb5:testIamPermissions x-goog-quota-user=projects/task-management-system-71eb5
+[debug] [2022-12-28T23:49:17.734Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/task-management-system-71eb5:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-28T23:49:19.223Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/task-management-system-71eb5:testIamPermissions 200
+[debug] [2022-12-28T23:49:19.223Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/task-management-system-71eb5:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-28T23:49:19.225Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5 [none]
+[debug] [2022-12-28T23:49:19.989Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5 200
+[debug] [2022-12-28T23:49:19.990Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5 {"projectId":"task-management-system-71eb5","projectNumber":"1003379771345","displayName":"task-management-system","name":"projects/task-management-system-71eb5","resources":{"hostingSite":"task-management-system-71eb5"},"state":"ACTIVE","etag":"1_9920c876-1e99-489e-830a-e74293a59e44"}
+[debug] [2022-12-28T23:49:23.305Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites pageToken=&pageSize=10
+[debug] [2022-12-28T23:49:25.757Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites 200
+[debug] [2022-12-28T23:49:25.757Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites {"sites":[{"name":"projects/task-management-system-71eb5/sites/task-management-system-71eb5","defaultUrl":"https://task-management-system-71eb5.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-12-28T23:49:25.758Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites 
+[debug] [2022-12-28T23:49:26.833Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites 200
+[debug] [2022-12-28T23:49:26.833Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites {"sites":[{"name":"projects/task-management-system-71eb5/sites/task-management-system-71eb5","defaultUrl":"https://task-management-system-71eb5.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-12-28T23:49:26.834Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5/webApps/-/config [none]
+[debug] [2022-12-28T23:49:28.183Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5/webApps/-/config 200
+[debug] [2022-12-28T23:49:28.183Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5/webApps/-/config {"projectId":"task-management-system-71eb5","appId":"1:1003379771345:web:45a911912dfbb68a2842f0","storageBucket":"task-management-system-71eb5.appspot.com","apiKey":"AIzaSyBimCHN-yYTnCRrb8HX2seomemESvDO1uM","authDomain":"task-management-system-71eb5.firebaseapp.com","messagingSenderId":"1003379771345"}
+[debug] [2022-12-28T23:49:49.717Z] TypeError: Cannot read properties of null (reading 'toString')
+    at ɵcodegenFunctionsDirectory (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\next\index.js:220:18)
+    at async prepareFrameworks (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js:305:84)
+    at async deploy (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-12-28T23:50:29.396Z] ----------------------------------------------------------------------
+[debug] [2022-12-28T23:50:29.399Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-12-28T23:50:29.399Z] CLI Version:   11.19.0
+[debug] [2022-12-28T23:50:29.399Z] Platform:      win32
+[debug] [2022-12-28T23:50:29.399Z] Node Version:  v16.15.1
+[debug] [2022-12-28T23:50:29.400Z] Time:          Thu Dec 29 2022 05:50:29 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-12-28T23:50:29.401Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-28T23:50:29.485Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-28T23:50:29.485Z] > authorizing via signed-in user (tausifabid1294@gmail.com)
+[debug] [2022-12-28T23:50:29.485Z] [iam] checking project task-management-system-71eb5 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-28T23:50:29.488Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/task-management-system-71eb5:testIamPermissions [none]
+[debug] [2022-12-28T23:50:29.488Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/task-management-system-71eb5:testIamPermissions x-goog-quota-user=projects/task-management-system-71eb5
+[debug] [2022-12-28T23:50:29.489Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/task-management-system-71eb5:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-28T23:50:30.838Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/task-management-system-71eb5:testIamPermissions 200
+[debug] [2022-12-28T23:50:30.838Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/task-management-system-71eb5:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-28T23:50:30.840Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5 [none]
+[debug] [2022-12-28T23:50:31.656Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5 200
+[debug] [2022-12-28T23:50:31.656Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5 {"projectId":"task-management-system-71eb5","projectNumber":"1003379771345","displayName":"task-management-system","name":"projects/task-management-system-71eb5","resources":{"hostingSite":"task-management-system-71eb5"},"state":"ACTIVE","etag":"1_9920c876-1e99-489e-830a-e74293a59e44"}
+[debug] [2022-12-28T23:50:34.776Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites pageToken=&pageSize=10
+[debug] [2022-12-28T23:50:35.900Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites 200
+[debug] [2022-12-28T23:50:35.900Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites {"sites":[{"name":"projects/task-management-system-71eb5/sites/task-management-system-71eb5","defaultUrl":"https://task-management-system-71eb5.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-12-28T23:50:35.900Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites 
+[debug] [2022-12-28T23:50:37.009Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites 200
+[debug] [2022-12-28T23:50:37.009Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/task-management-system-71eb5/sites {"sites":[{"name":"projects/task-management-system-71eb5/sites/task-management-system-71eb5","defaultUrl":"https://task-management-system-71eb5.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-12-28T23:50:37.009Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5/webApps/-/config [none]
+[debug] [2022-12-28T23:50:38.270Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5/webApps/-/config 200
+[debug] [2022-12-28T23:50:38.270Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/task-management-system-71eb5/webApps/-/config {"projectId":"task-management-system-71eb5","appId":"1:1003379771345:web:45a911912dfbb68a2842f0","storageBucket":"task-management-system-71eb5.appspot.com","apiKey":"AIzaSyBimCHN-yYTnCRrb8HX2seomemESvDO1uM","authDomain":"task-management-system-71eb5.firebaseapp.com","messagingSenderId":"1003379771345"}
+[debug] [2022-12-28T23:50:58.372Z] TypeError: Cannot read properties of null (reading 'toString')
+    at ɵcodegenFunctionsDirectory (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\next\index.js:220:18)
+    at async prepareFrameworks (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js:305:84)
+    at async deploy (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.
