@@ -19,7 +19,7 @@ const AllTaskTab = () => {
 
   //-------- handling task status started or completed
   const handleTaskStatus = (id, status) => {
-    fetch(`http://localhost:5000/updateTask/${id}`, {
+    fetch(`https://task-management-server-sooty.vercel.app/updateTask/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -37,7 +37,7 @@ const AllTaskTab = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteTask/${id}`, {
+    fetch(`https://task-management-server-sooty.vercel.app/deleteTask/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

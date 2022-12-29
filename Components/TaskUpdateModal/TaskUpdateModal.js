@@ -46,7 +46,7 @@ const TaskUpdateModal = ({ openModal, handleOpenModal, info, refetch }) => {
     };
     console.log(taskInfo);
 
-    fetch(`http://localhost:5000/updateTask/${_id}`, {
+    fetch(`https://task-management-server-sooty.vercel.app/updateTask/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
