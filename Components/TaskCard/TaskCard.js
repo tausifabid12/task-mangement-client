@@ -36,6 +36,9 @@ const TaskCard = ({ info, refetch }) => {
           if (status === "completed") {
             router.push("/completedTasks");
           }
+          if (status === "new") {
+            router.push("/AllTasks");
+          }
         }
       });
   };
