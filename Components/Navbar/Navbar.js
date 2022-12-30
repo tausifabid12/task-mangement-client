@@ -54,16 +54,18 @@ const Nav = () => {
           All Tasks
         </Link>
       </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <Link href="/completedTasks" className="flex items-center">
-          Completed Tasks
-        </Link>
-      </Typography>
+      {user?.email && (
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-normal"
+        >
+          <Link href="/completedTasks" className="flex items-center">
+            Completed Tasks
+          </Link>
+        </Typography>
+      )}
     </ul>
   );
 

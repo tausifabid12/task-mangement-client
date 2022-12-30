@@ -10,7 +10,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
-import { toast } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 import TaskUpdateModal from "../TaskUpdateModal/TaskUpdateModal";
 import { useRouter } from "next/router";
 
@@ -165,6 +165,7 @@ const TaskCard = ({ info, refetch }) => {
         handleOpenModal={handleOpenModal}
         openModal={openModal}
       />
+      <Toaster />
     </div>
   );
 };

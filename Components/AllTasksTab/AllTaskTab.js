@@ -50,11 +50,7 @@ const AllTaskTab = () => {
             {taskInfo?.data &&
               taskInfo?.data.map((info) => (
                 <TabPanel key={info?._id} value={info?.status}>
-                  {info?.status ? (
-                    <TaskCard key={info?._id} info={info} refetch={refetch} />
-                  ) : (
-                    <Nodata />
-                  )}
+                  <TaskCard key={info?._id} info={info} refetch={refetch} />
                 </TabPanel>
               ))}
           </div>
