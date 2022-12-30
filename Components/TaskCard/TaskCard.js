@@ -12,10 +12,47 @@ import {
 import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 import { toast } from "react-hot-toast";
 import TaskUpdateModal from "../TaskUpdateModal/TaskUpdateModal";
+import { useRouter } from "next/router";
 
-const TaskCard = ({ info, handleTaskStatus, refetch, handleDelete }) => {
+const TaskCard = ({ info, refetch }) => {
   const { endDate, startDate, taskName, imgUrl, decs, _id, status } = info;
   const [openModal, setOpenModal] = useState(false);
+  const router = useRouter();
+
+  //-------- handling task status started or completed
+  const handleTaskStatus = (id, status) => {
+    fetch(`https://task-management-server-sooty.vercel.app/updateTask/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: status }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.status) {
+          refetch();
+          toast.success(`Task ${status}`);
+          if (status === "completed") {
+            router.push("/completedTasks");
+          }
+        }
+      });
+  };
+
+  const handleDelete = (id) => {
+    fetch(`https://task-management-server-sooty.vercel.app/deleteTask/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.status) {
+          refetch();
+          toast.error(`Task Deleted`);
+        }
+        console.log(data);
+      });
+  };
 
   const handleOpenModal = () => {
     setOpenModal(!openModal);
@@ -23,7 +60,7 @@ const TaskCard = ({ info, handleTaskStatus, refetch, handleDelete }) => {
 
   return (
     <div>
-      <Card className="w-96 h-[290px] shadow-md border-t-2 border-gray-200 ">
+      <Card className="w-full mx-2 h-[290px] shadow-md border-t-2 border-gray-200 lg:mx-auto">
         <CardHeader className="absolute h-28 w-36 left-6 -top-5 shadow-lg shadow-blue-100">
           <img src={imgUrl} alt="Task Image" className="h-full w-full " />
         </CardHeader>
@@ -34,16 +71,19 @@ const TaskCard = ({ info, handleTaskStatus, refetch, handleDelete }) => {
             </p>
             <div className="flex w-max gap-2">
               {/* <button onClick={handleOpenModal}> */}
-              <IconButton
-                onClick={handleOpenModal}
-                ripple={true}
-                color="green"
-                size="sm"
-              >
-                <span>
-                  <BsFillPencilFill />
-                </span>
-              </IconButton>
+              {status === "completed" || (
+                <IconButton
+                  onClick={handleOpenModal}
+                  ripple={true}
+                  color="green"
+                  size="sm"
+                >
+                  <span>
+                    <BsFillPencilFill />
+                  </span>
+                </IconButton>
+              )}
+
               <IconButton
                 onClick={() => handleDelete(_id)}
                 ripple={true}
@@ -52,7 +92,6 @@ const TaskCard = ({ info, handleTaskStatus, refetch, handleDelete }) => {
               >
                 <BsFillTrashFill />
               </IconButton>
-              {/* </button> */}
             </div>
           </div>
           <Typography>{decs}</Typography>
@@ -74,7 +113,7 @@ const TaskCard = ({ info, handleTaskStatus, refetch, handleDelete }) => {
         </CardBody>
         <div className="w-full max-h-28 align-bottom">
           <CardFooter divider className="h- py-3">
-            <div className="absolute top-1 right-1 ">
+            <div className="absolute top-1 right-2 ">
               {status === "completed" ? (
                 <Button
                   onClick={() =>
@@ -109,10 +148,6 @@ const TaskCard = ({ info, handleTaskStatus, refetch, handleDelete }) => {
                   )}
                 </>
               )}
-
-              {/* <button className="px-7 text-xs py-1 bg-orange-500 text-white rounded-md">
-              50% Done
-            </button> */}
             </div>
             <div className="flex items-center justify-between">
               <p className="font-bold pr-4">Progress:</p>

@@ -17,38 +17,6 @@ const AllTaskTab = () => {
   const { user } = useContext(AuthContext);
   const [taskInfo, refetch] = useTaskInfo();
 
-  //-------- handling task status started or completed
-  const handleTaskStatus = (id, status) => {
-    fetch(`https://task-management-server-sooty.vercel.app/updateTask/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ status: status }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.status) {
-          refetch();
-          toast.success(`Task ${status}`);
-        }
-        console.log(data);
-      });
-  };
-
-  const handleDelete = (id) => {
-    fetch(`https://task-management-server-sooty.vercel.app/deleteTask/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.status) {
-          refetch();
-          toast.error(`Task Deleted`);
-        }
-        console.log(data);
-      });
-  };
   return (
     <div className="max-w-screen-2xl mx-auto py-11">
       <Tabs id="custom-animation" value="All Tasks">
@@ -71,17 +39,11 @@ const AllTaskTab = () => {
             unmount: { y: 250 },
           }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-3 py-12 ">
+          <div className="grid grid-cols-1 lg:grid-cols-3 py-16 gap-y-8">
             {taskInfo?.data &&
               taskInfo?.data.map((info) => (
                 <TabPanel key={info?._id} value={"All Tasks"}>
-                  <TaskCard
-                    key={info?._id}
-                    info={info}
-                    refetch={refetch}
-                    handleTaskStatus={handleTaskStatus}
-                    handleDelete={handleDelete}
-                  />
+                  <TaskCard key={info?._id} info={info} refetch={refetch} />
                 </TabPanel>
               ))}
 
@@ -89,11 +51,7 @@ const AllTaskTab = () => {
               taskInfo?.data.map((info) => (
                 <TabPanel key={info?._id} value={info?.status}>
                   {info?.status ? (
-                    <TaskCard
-                      key={info?._id}
-                      info={info}
-                      handleTaskStatus={handleTaskStatus}
-                    />
+                    <TaskCard key={info?._id} info={info} refetch={refetch} />
                   ) : (
                     <Nodata />
                   )}

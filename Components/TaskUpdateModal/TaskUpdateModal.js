@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const TaskUpdateModal = ({ openModal, handleOpenModal, info, refetch }) => {
   const {
@@ -22,8 +23,8 @@ const TaskUpdateModal = ({ openModal, handleOpenModal, info, refetch }) => {
     _id,
     status,
   } = info;
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const router = useRouter();
+
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, serEndDate] = useState(new Date());
 
@@ -58,8 +59,10 @@ const TaskUpdateModal = ({ openModal, handleOpenModal, info, refetch }) => {
         if (data?.status) {
           refetch();
           toast.success("Data Updated successfully");
+          if (status === "completed") {
+            router.push("/completedTasks");
+          }
         }
-        console.log(data);
       });
   };
   return (
@@ -67,7 +70,7 @@ const TaskUpdateModal = ({ openModal, handleOpenModal, info, refetch }) => {
       {/* <Button onClick={handleOpen} variant="gradient">
         Open Dialog
       </Button> */}
-      <Dialog open={openModal} size="lg" handler={handleOpenModal}>
+      <Dialog open={openModal} size="xl" handler={handleOpenModal}>
         <DialogHeader>{taskName}</DialogHeader>
         <form onSubmit={handleSubmit(handleUpdateTaskInfo)}>
           <DialogBody divider>

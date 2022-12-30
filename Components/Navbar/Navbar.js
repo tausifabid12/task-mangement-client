@@ -54,16 +54,16 @@ const Nav = () => {
           All Tasks
         </Link>
       </Typography>
-      {/* <Typography
+      <Typography
         as="li"
         variant="small"
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link href="#" className="flex items-center">
-          Docs
+        <Link href="/completedTasks" className="flex items-center">
+          Completed Tasks
         </Link>
-      </Typography> */}
+      </Typography>
     </ul>
   );
 
