@@ -7,19 +7,20 @@ import {
   Input,
   Checkbox,
   Button,
-} from "@material-tailwind/react";
-import { GoogleAuthProvider } from "firebase/auth";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
-import Nav from "../Components/Navbar/Navbar";
-import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
+} from '@material-tailwind/react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+import Layout from '../Components/Layout/Layout';
+import Nav from '../Components/Navbar/Navbar';
+import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 
 const login = () => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const { login, socialLogin } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const router = useRouter();
@@ -37,11 +38,11 @@ const login = () => {
     login(email, password)
       .then((result) => {
         setLoading(false);
-        setError("");
+        setError('');
         e.target.reset();
-        toast("login Success");
+        toast('login Success');
         console.log(result);
-        router.push("/");
+        router.push('/');
       })
       .catch((err) => {
         setLoading(false);
@@ -54,9 +55,9 @@ const login = () => {
     socialLogin(googleProvider)
       .then((result) => {
         setLoading(false);
-        setError("");
-        toast("login Success");
-        router.push("/");
+        setError('');
+        toast('login Success');
+        router.push('/');
       })
       .catch((err) => {
         setError(err.message);
@@ -65,8 +66,7 @@ const login = () => {
   };
 
   return (
-    <div>
-      <Nav></Nav>
+    <Layout title="Login Page">
       <div className="max-w-screen-2xl mx-auto h-screen flex justify-center mt-20">
         <Card className="w-full lg:w-[450px] h-[500px] border-2 border-t-gray-200">
           <CardHeader
@@ -85,7 +85,7 @@ const login = () => {
               <Input
                 label="Email"
                 size="lg"
-                {...register("email", { required: true })}
+                {...register('email', { required: true })}
               />
               {errors.email && (
                 <span className="text-red-500">This field is required</span>
@@ -93,15 +93,15 @@ const login = () => {
               <Input
                 label="Password"
                 size="lg"
-                {...register("password", {
+                {...register('password', {
                   required: true,
                   minLength: 6,
                 })}
               />
-              {errors.password && errors.password.type === "required" && (
+              {errors.password && errors.password.type === 'required' && (
                 <span className="text-red-500">This is required</span>
               )}
-              {errors.password && errors.password.type === "minLength" && (
+              {errors.password && errors.password.type === 'minLength' && (
                 <span className="text-red-500 ">
                   Password must have 6 character
                 </span>
@@ -141,7 +141,7 @@ const login = () => {
           </form>
         </Card>
       </div>
-    </div>
+    </Layout>
   );
 };
 

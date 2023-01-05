@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Express Food
 
-## Getting Started
+This is a Task Management web app. User can add Update and delete their Tasks.
 
-First, run the development server:
+Explore the web site [EXPRESS FOOD ](https://easy-food-e36c0.web.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Demo User
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### `Email: 1@gamil.com`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### `Password: 129400`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Features
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Well Designed and Functional
+- Easy to Use
+- Optimized for Mobile
+- Firebase Authentication
+- Secure api
+- Private Route
+- CURD Operation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Used Technologies
 
-## Learn More
+- React
+- Express
+- MongoDb
+- Firebase
+- TanStack Query
+- React Hook Form
+- Tailwind Css
+- Material-Tailwind
 
-To learn more about Next.js, take a look at the following resources:
+<!-- ### Getting Started with Create React App -->
+<!--
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Available Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In the project directory, you can run:
 
-## Deploy on Vercel
+### `npm start`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The page will reload when you make changes.\
+You may also see any lint errors in the console. -->
